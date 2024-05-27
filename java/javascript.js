@@ -5,18 +5,17 @@ function showSelectedCity(event){
     }
     let cityTime=moment().tz(cityTimeZone);
     let cityName=cityTimeZone.split("/")[1];
-     let newCitySelectElement=document.querySelector(".cities");
+     let newCitySelectElement=document.querySelector("#cities");
      newCitySelectElement.innerHTML=`     
      <div class="city">
      <div>
      <h2>${cityName}</h2>
  
-     <div class="date" id="date2">
+     <div class="date">
         ${cityTime.format("MMMM Do YYYY")}
      </div>
      </div>
-     <div class="time" id="time2
-     ">
+     <div class="time">
          ${cityTime.format("h:mm:ss")}<small> ${cityTime.format("A")}</small>
      </div>
 </div>`;
@@ -28,39 +27,53 @@ citySelectElement.addEventListener("change",showSelectedCity);
 
 
 //Porto
-let portoDate= moment().tz("Europe/Lisbon").format("MMMM D YYYY");
-let currentDatePorto= document.querySelector("#date");
-currentDatePorto.innerHTML=portoDate;
-
 function displayPortoTime(){
-    if(currentTimePorto){
-    let portoTime= moment().tz("Europe/Lisbon").format("HH:mm:ss A");
-let currentTimePorto= document.querySelector("#time");
-currentTimePorto.innerHTML=portoTime;
+    let portoElement=document.querySelector("#porto");
+    if(portoElement){
+        let portoDateElement=portoElement.querySelector(".date");
+        let portoTimeElement=portoElement.querySelector(".time");
+        let portoTime=moment().tz("Europe/Lisbon");
 
+        portoDateElement.innerHTML=portoTime.format("MMMM Do YYYY");
+        portoTimeElement.innerHTML=portoTime.format("h:mm:ss [<small>]A[</small]");
+    }
 }
 displayPortoTime();
 setInterval(displayPortoTime,1000);
-}
+
 
 //Sydney
-
-let sydneyDate= moment().tz("Australia/Sydney").format("MMMM D YYYY");
-let currentDateSydney= document.querySelector("#date2");
-currentDateSydney.innerHTML=sydneyDate;
-
-
-
 function displaySydneyTime(){
-    if (currentTimeSydney){
-    let sydneyTime= moment().tz("Australia/Sydney").format("HH:mm:ss A");
-let currentTimeSydney= document.querySelector("#time2");
-currentTimeSydney.innerHTML=sydneyTime;
+    let sydneyElement=document.querySelector("#sydney");
+    if(sydneyElement){
+        let sydneyDateElement=sydneyElement.querySelector(".date");
+        let sydneyTimeElement=sydneyElement.querySelector(".time");
+        let sydneyTime=moment().tz("Australia/Sydney");
 
-
+        sydneyDateElement.innerHTML=sydneyTime.format("MMMM Do YYYY");
+        sydneyTimeElement.innerHTML=sydneyTime.format("h:mm:ss [<small>]A[</small]");
+    }
 }
 displaySydneyTime();
 setInterval(displaySydneyTime,1000);
+
+
+
+//Cuba
+function displayCubaTime(){
+    let cubaElement=document.querySelector("#cuba");
+    if(cubaElement){
+        let cubaDateElement=cubaElement.querySelector(".date");
+        let cubaTimeElement=cubaElement.querySelector(".time");
+        let cubaTime=moment().tz("Cuba");
+
+        cubaDateElement.innerHTML=cubaTime.format("MMMM Do YYYY");
+        cubaTimeElement.innerHTML=cubaTime.format("h:mm:ss [<small>]A[</small]");
+    }
 }
+displayCubaTime();
+setInterval(displayCubaTime,1000);
+
+
 
 
