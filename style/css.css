@@ -56,6 +56,12 @@ a{
     color:rgb(59, 35, 140);
     
 }
+button{
+    color:rgb(59, 35, 140);
+    background-color: #f9f7fe;
+    border-radius: 4px;
+
+}
 footer{
  
     text-align: center;

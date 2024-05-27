@@ -18,10 +18,18 @@ function showSelectedCity(event){
      <div class="time">
          ${cityTime.format("h:mm:ss")}<small> ${cityTime.format("A")}</small>
      </div>
-</div>`;
+</div>
+</ br> <a href="index.html" class="button"><button>Go back!</button></a>
+`;
+
+
 }
+
+
 let citySelectElement=document.querySelector("#select-city");
 citySelectElement.addEventListener("change",showSelectedCity);
+
+
 
 
 
